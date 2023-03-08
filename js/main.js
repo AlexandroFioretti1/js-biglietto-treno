@@ -16,33 +16,37 @@ Strumenti usati
 */
 
 //********************************************************************************************************************************************
-// chiedo all'utente quanti km deve percorrere 
+const SCONTO_MINORENNI = 0.2;
+const SCONTO_OVER = 0.4;
+
+// chiedo all'utente quanti km deve percorrere
 const km = Number(prompt("Quanti km devi percorrere?"));
 console.log(km);
 
-// chiedo all'utente l'età 
+// chiedo all'utente l'età
 const userAges = Math.floor(Number(prompt("Quanti anni hai?")));
 console.log(userAges);
 
 // assegno  il valore del "full price" e prezzo scontato
 const standardCost = 0.21;
 
+
 let fullCost = km * standardCost;
 console.log(fullCost);
 
 if (userAges < 18) {
-      fullCost *= 0.8;
-      console.log(fullCost);
-
+  fullCost *= 1 - SCONTO_MINORENNI;
+  console.log(fullCost);
 } else if (userAges >= 65) {
-      fullCost *= 0.6;
-      console.log(fullCost);
-    }
 
-// formatto il prezzo scontato per avere due cifre 
-let humanPrice = fullCost.toFixed(2) 
+  fullCost *= 1 - SCONTO_OVER;
+  console.log(fullCost);
+}
+
+// formatto il prezzo scontato per avere due cifre
+let humanPrice = fullCost.toFixed(2);
 
 // mostrare all'utente il prezzo finale in pagina
-const displayPrice = document.getElementById ("result")
-displayPrice.innerHTML = `${humanPrice} €`
+const displayPrice = document.getElementById("result");
+displayPrice.innerHTML = `${humanPrice} €`;
 // prego di non aver rotto nient
