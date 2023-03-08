@@ -21,7 +21,9 @@ Strumenti usati
 const km = Number(prompt("Quanti km devi percorrere?"));
 console.log(km);
 
-// chiedo all'utente l'età e controllo che sia un numero e che sia maggiore di 1
+// chiedo all'utente l'età 
+const userAge = Math.floor(Number(prompt("Quanti anni hai?")));
+console.log(userAge)
 
 // calcolo lo sconto a seconda dell'età
 
