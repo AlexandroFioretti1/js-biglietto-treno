@@ -11,7 +11,6 @@ Strumenti usati
 - const/let
 - if/else
 - prompt
-- Math.round 
 - console.log
 - getElementById/innerHTML
 */
@@ -22,15 +21,28 @@ const km = Number(prompt("Quanti km devi percorrere?"));
 console.log(km);
 
 // chiedo all'utente l'età 
-const userAge = Math.floor(Number(prompt("Quanti anni hai?")));
-console.log(userAge)
+const userAges = Math.floor(Number(prompt("Quanti anni hai?")));
+console.log(userAges);
 
-// calcolo lo sconto a seconda dell'età
+// assegno  il valore del "full price" e prezzo scontato
+const standardCost = 0.21;
 
-// assegno a prezzo scontato il valore del "full price"
+let fullCost = km * standardCost;
+console.log(fullCost);
 
-// formatto il prezzo scontato per avere due cifre decimali
+if (userAges < 18) {
+      fullCost *= 0.8;
+      console.log(fullCost);
+
+} else if (userAges >= 65) {
+      fullCost *= 0.6;
+      console.log(fullCost);
+    }
+
+// formatto il prezzo scontato per avere due cifre 
+let humanPrice = fullCost.toFixed(2) 
 
 // mostrare all'utente il prezzo finale in pagina
-
-// prego di non aver rotto niente
+const displayPrice = document.getElementById ("result")
+displayPrice.innerHTML = `${humanPrice} €`
+// prego di non aver rotto nient
